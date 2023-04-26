@@ -1,0 +1,33 @@
+<h1>Events:</h1>
+
+
+<div id="events-index-table-wrapper">
+  <%=
+    render(
+      partial: 'events_index_table',
+      locals: {
+        events: @events,
+        pagination: {
+          page: @page,
+          total_pages: @total_pages,
+        }
+      }
+    )
+  -%>
+</div>
+
+<script>
+  const paginationBtns = document.querySelectorAll('.pagination-btn');
+  paginationBtns.forEach( paginationBtn => {
+    $.ajax({
+      url: '/events/paginate',
+      method: 'GET',
+      dataType: 'html',
+      success: response => {
+        console.log('response = ', response);
+        const wrapper = document.querySelector('#events-index-table-wrapper');
+        wrapper.innerHTML = response.html;
+      }
+    });
+  });
+</script>

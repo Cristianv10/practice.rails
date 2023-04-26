@@ -1,0 +1,12 @@
+<h1>PRODUCTOS: </h1>
+<h2>index:</h2>
+
+    <% @products.each do | product | %>
+        <%= link_to product_path(product.id) do %>
+            <h3><%= product.tittle %></h3>
+            <h3><%= product.description%></h3>
+            <h3><%= product.price%></h3>
+        
+        <% end %>
+    <% end %>
+

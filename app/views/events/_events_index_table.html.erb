@@ -1,0 +1,35 @@
+<div class="card-grid">
+    <input class="box" type="text" placeholder="Search for events">
+    <label class="file_exporter" for="fileInput">CSV Exporter:</label>
+    <input type="file" id="fileInput" style="display:none;">
+  <button class="new_events"> + New Event</button>
+  <table class="mi-tabla">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Event</th>
+        <th>Date and time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% events.each do |event| %>
+      <tr>
+        <td><%= link_to event.id, event_path(event) %></td>
+        <td>
+        <img class="evento-imagen" src="https://imagenes.elpais.com/resizer/vUXumyOMe0Anzm4GRtS6MPFeg7U=/1200x0/arc-anglerfish-eu-central-1-prod-prisa.s3.amazonaws.com/public/RPTDZ275ODEKBUVZDEFIVRBTNA.jpg" alt="Camacaro">
+        <div class="event-title"><%= event.title %></div>
+        <div class="event-date"><%= event.start_datetime.strftime("%A, %B %d %Y AT %I:%M %p %Z") %></div>
+      </td>
+        <td><%= event.start_datetime %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% if pagination[:page] > 1 %>
+    <button id="prev-page-btn" class="pagination-btn">Prev</button>
+  <% end %>
+  
+  <% if pagination[:page] < pagination[:total_pages] %>
+    <button id="next-page-btn" class="pagination-btn">Next</button>
+  <% end %>
+</div>

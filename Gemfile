@@ -72,3 +72,4 @@ group :test do
   gem "cssbundling-rails"
 end
  
+gem 'byebug'
