@@ -1,0 +1,28 @@
+<div class="card-grid">
+    <input class="box" type="text" placeholder="Search for Products">
+    <label class="file_exporter" for="fileInput">CSV Exporter:</label>
+    <input type="file" id="fileInput" style="display:none;">
+  <button class="new_products"> + New Product</button>
+  <table class="mi-tabla">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Product Name</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+      <tr>
+        <td><%= link_to product.id, product_path(product) %></td>
+        <td>
+        <img class="product-imagen" src="https://imagenes.elpais.com/resizer/vUXumyOMe0Anzm4GRtS6MPFeg7U=/1200x0/arc-anglerfish-eu-central-1-prod-prisa.s3.amazonaws.com/public/RPTDZ275ODEKBUVZDEFIVRBTNA.jpg" alt="Camacaro">
+        <div class="product-title"> <%= product.tittle %></div>
+        <div class="product-description"><%= product.description %></div>
+      </td>
+        <td><%= product.price %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

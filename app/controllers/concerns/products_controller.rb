@@ -1,15 +1,11 @@
 class ProductsController < ApplicationController
-    def index
-        @products = Product.all 
-    
-    end 
+        def index
+          @products = Product.all
+          @pagy, @products = pagy(Product.order(created_at: :desc), items: 2)
 
-    def show
-
-    @product = Product.find(params[:id])
-    
-    end
-        
-
-
-end
+        end
+      
+        def show
+          @product = Product.find(params[:id])
+        end
+      end
