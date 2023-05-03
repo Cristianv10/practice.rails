@@ -1,0 +1,24 @@
+<div id="pager" >
+  <div>
+    <% if @pagy.prev %>
+      <%= link_to(
+        "< Previous page",
+        products_url(page: pagy.prev),
+        data: {
+          turbo_action: "advance"
+        }
+      ) %>
+    <% end %>
+  </div>
+  <div class="text-right">
+    <% if @pagy.next %>
+      <%= link_to(
+        "Next page >",
+        products_url(page: pagy.next),
+        data: {
+          turbo_action: "advance"
+        }
+      ) %>
+    <% end %>
+  </div>
+</div>

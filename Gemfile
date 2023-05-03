@@ -79,3 +79,4 @@ gem 'byebug'
 
 gem 'jquery-rails'
 
+gem 'hotwire-rails'
